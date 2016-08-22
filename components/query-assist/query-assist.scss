@@ -1,0 +1,97 @@
+@import '../global/global';
+
+.ring-query-assist {
+  position: relative;
+  box-sizing: border-box;
+  height: $ring-unit*3;
+  background: #FFF;
+  @include ring-font;
+}
+
+.ring-query-assist__input {
+  z-index: 1;
+  padding-top: 2px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  background: transparent;
+
+  &.ring-query-assist__input_gap {
+    border-right-width: $ring-unit*3;
+  }
+
+  &.ring-query-assist__input_double-gap {
+    border-right-width: $ring-unit*6;
+
+    & ~ .ring-query-assist__icon_clear {
+      right: $ring-unit*3 + 2;
+    }
+  }
+}
+
+.ring-query-assist__placeholder {
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 5px;
+
+  color: #9C9C9C;
+  font-size: $ring-font-size;
+  line-height: 20px;
+}
+
+.ring-query-assist__letter {
+  padding-top: 2px;
+}
+
+.ring-query-assist__letter_text {
+  color: #B58900;
+}
+
+.ring-query-assist__letter_default,
+.ring-query-assist__letter_field-name {
+  color: #1A1A1A;
+}
+
+.ring-query-assist__letter_field-value {
+  color: #176B8A;
+}
+
+.ring-query-assist__letter_operator {
+  color: $ring-dark-gray-color;
+}
+
+.ring-query-assist__letter_error {
+  padding-bottom: 2px;
+  background: url('query-assist__error.gif') bottom repeat-x;
+}
+
+.ring-query-assist__icon {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: $ring-unit*2;
+  width: $ring-unit*2;
+
+  padding: 3px 4px 3px 5px;
+  background-color: #FFF;
+
+  cursor: pointer;
+  user-select: none;
+
+  &_loader {
+    padding: 4px 4px 2px 5px;
+  }
+
+  &:hover {
+    color: $ring-link-hover-color;
+  }
+
+  svg {
+    vertical-align: baseline;
+  }
+
+  .ring-loader-inline {
+    top: -1px;
+  }
+}

@@ -1,0 +1,34 @@
+@import "../global/global";
+
+// Link
+//
+// Markup:
+// <a href="#" class="ring-link {$modifiers}">Click me!</a>
+//
+// :hover - Hovered state
+//
+// Styleguide 10.1
+
+.ring-link,
+.ring-link:visited {
+  color: $ring-link-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  .ring-icon {
+    @include ring-vertical-compensation(-2px);
+  }
+}
+
+.ring-link_focus,
+.ring-link_focus:visited,
+.ring-link:hover,
+.ring-link:focus {
+  color: $ring-link-hover-color;
+  text-decoration: underline;
+}
+
+.ring-link_pseudo,
+.ring-link_pseudo:hover {
+  text-decoration: none;
+}

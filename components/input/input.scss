@@ -1,0 +1,131 @@
+@import "../global/global";
+
+// Input
+//
+// Markup:
+// <input class="{$modifiers} ring-input" type="text" placeholder="placeholder">
+//
+// :disabled            - Disabled state, also available as the `.ring-input_disabled` class name.
+// :active              - Active state, also available as the `.ring-input_active` class name.
+// :focus               - Focus state, also available as the `.ring-input_focus` class name.
+// .ring-input_correct  - The entered value is correct.
+// .ring-input_error    - The entered value is incorrect.
+//
+// Styleguide 14.1
+
+.ring-input {
+  appearance: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding-right: $ring-unit/ 2;
+  padding-left: $ring-unit / 2;
+  border: 1px solid $ring-gray-color;
+  background-color: #FFF;
+
+  @include ring-font;
+  line-height: 20px;
+  height: 3*$ring-unit;
+  width: 100%;
+
+  &:active, &:focus, &_active, &_focus {
+    border-color: $ring-blue-color;
+    outline: 0;
+  }
+
+  &_correct {
+    border-color: $ring-green-color;
+  }
+
+  &_error {
+    border-color: #F00;
+  }
+
+  &_no-resize {
+    resize: none;
+  }
+
+  &_filter-popup {
+    min-width: 200px;
+    width: 100%;
+  }
+
+  &_material {
+    padding-left: 0;
+    padding-right: 0;
+
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+// Using double selector to enforce specificity, that is hard to express with &
+.ring-input.ring-input:disabled, .ring-input.ring-input[disabled], .ring-input.ring-input_disabled {
+  @include ring-input-disabled;
+}
+
+textarea.ring-input {
+  height: auto;
+  min-height: 8*$ring_unit;
+}
+
+// Input error bubbles
+//
+// Markup:
+// <div class="ring-form__controller">
+//   <input class="ring-input ring-input_error" type="text">
+//   <div class="ring-error-bubble active">Wrong value</div>
+// </div>
+//
+// Styleguide 14.2
+/**
+ * TODO: deprecated. Use ring-error-bubble instead
+ */
+.ring-input__error-bubble {
+  z-index: 2;
+  box-sizing: border-box;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 25*$ring-unit + 2; // fallback if calc is not supported
+  left: calc(100% + 2px);
+  height: 3*$ring-unit;
+  padding-right: 2*$ring-unit;
+  padding-left: 2*$ring-unit;
+  line-height: 3*$ring-unit;
+
+  border-radius: $ring-border-radius;
+  border: 1px solid #e5e5e5;
+
+  @include ring-font;
+  white-space: nowrap;
+
+  color: $ring-error-color;
+  background: #FFF;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.15);
+
+  &.active {
+    display: inline-block;
+  }
+
+  &:before {
+    content: '';
+    transform: rotate(45deg);
+    z-index: $ring-invisible-element-z-index;
+
+    position: absolute;
+    top: 7px;
+    left: -5px;
+
+    display: block;
+    width: $ring-unit;
+    height: $ring-unit;
+
+    border: 1px solid $ring-gray-color;
+    border-right: none;
+    border-top: none;
+
+    background: #FFF;
+  }
+}

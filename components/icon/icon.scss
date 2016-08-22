@@ -1,0 +1,64 @@
+@import '../global/global';
+
+.ring-icon {
+  display: inline-block;
+  fill: currentColor;
+  position: relative;
+  vertical-align: middle;
+
+  svg {
+    display: inline-block;
+    pointer-events: none;
+    vertical-align: middle;
+  }
+}
+
+// Available icon colours
+.ring-icon_gray {
+  color: $ring-gray-color;
+}
+
+.ring-icon_hover {
+  color: $ring-link-hover-color;
+}
+
+.ring-icon_green {
+  color: $ring-green-color;
+}
+
+.ring-icon_orange {
+  color: $ring-link-hover-color;
+}
+
+.ring-icon_red {
+  color: $ring-error-color;
+}
+
+.ring-icon_blue {
+  color: $ring-blue-color;
+}
+
+.ring-icon_white {
+  color: #FFF;
+}
+
+.ring-icon_loading {
+  animation-name: icon-loading;
+  animation-duration: 1200ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes icon-loading {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
