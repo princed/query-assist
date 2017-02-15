@@ -103,5 +103,6 @@ The function must return object with fields described below. The object can be o
 | group | `string` | | Group title. Options with the same title are grouped under it. |
 | icon | `string` | | Icon URI, Data URI is possible |
 
+## License
 
-
+Apache 2.0
