@@ -1,5 +1,9 @@
 # Query Assist component
 
+## This repo is deprecated
+
+Ring UI library is now open-sourced including [Query Assist component](http://www.jetbrains.org/ring-ui/query-assist.html). 
+
 ## Disclaimer
  
 This temporary repo contains our Query Assist component that we're often asked to share.
